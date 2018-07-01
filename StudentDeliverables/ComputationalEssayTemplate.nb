@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    114056,       2334]
-NotebookOptionsPosition[     94714,       1952]
-NotebookOutlinePosition[    108168,       2246]
-CellTagsIndexPosition[    108125,       2243]
+NotebookDataLength[    114708,       2345]
+NotebookOptionsPosition[     95271,       1962]
+NotebookOutlinePosition[    108725,       2256]
+CellTagsIndexPosition[    108682,       2253]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -1678,12 +1678,13 @@ E9Dngdgulrg1nYUAhV9MMnrMwT54vEHtHz5+XZWbNxzhQ3Hi5WzNCR7+BZZS
 Cell["\<\
 With 5000 iterations, the dinosaur has completely disappeared from our graph, \
 and a hollow, circular region is emerging in the center. Repeating our \
-algorithm up to 500000 iterations computes a more bizarre answer, yet both \
+algorithm up to 500000 iterations computes a more distinct circle, yet both \
 our Datasaurus and the perturbed dataset share the same mean, standard \
 deviation and Pearson\[CloseCurlyQuote]s correlation. \
 \>", "Text",
  CellChangeTimes->{{3.7393899446830955`*^9, 3.7393900926875143`*^9}, 
-   3.739394245132901*^9},ExpressionUUID->"6b8b3d2c-c7ee-4d15-bb3d-\
+   3.739394245132901*^9, {3.7394056077891893`*^9, 
+   3.739405610846403*^9}},ExpressionUUID->"6b8b3d2c-c7ee-4d15-bb3d-\
 9468fe2b0476"],
 
 Cell[CellGroupData[{
@@ -1864,23 +1865,18 @@ Cell["Further explorations", "Section",
 ad35832309c2"],
 
 Cell["\<\
-Anscombe, F.J. (1973). Graphs in Statistical Analysis.
-The American Statistician 27, 1, 17\[Dash]21.\
+Anscombe, F.J. (1973). Graphs in Statistical Analysis. The American \
+Statistician 27, 1, 17\[Dash]21.\
 \>", "Text",
  CellChangeTimes->{{3.7007765492418337`*^9, 3.7007765636102467`*^9}, {
    3.705104213701561*^9, 3.7051042224510612`*^9}, {3.705105582902875*^9, 
    3.7051055862950687`*^9}, 3.705685620863511*^9, 3.7169026105308657`*^9, 
-   3.735483436579891*^9, {3.739273009756556*^9, 
-   3.7392730415653563`*^9}},ExpressionUUID->"974d1d02-3f81-4f9f-a141-\
+   3.735483436579891*^9, {3.739273009756556*^9, 3.7392730415653563`*^9}, {
+   3.739405794785869*^9, 
+   3.739405799822496*^9}},ExpressionUUID->"974d1d02-3f81-4f9f-a141-\
 4f1608fd9d6a"],
 
 Cell["\<\
-Matejka, J., & Fitzmaurice, G. (2017). Same Stats, Different Graphs: \
-Generating Datasets with Varied Appearance and Identical Statistics Through \
-Simulated Annealing. In Proceedings of the 2017 CHI Conference on Human \
-Factors in Computing Systems (pp. 1290\[Dash]1294). New York, NY, USA: ACM. \
-https://doi.org/10.1145/3025453.3025912
-
 Cairo, A. (n.d.). Download the Datasaurus: Never trust summary statistics \
 alone; always visualize your data. Retrieved June 29, 2018, from \
 http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-\
@@ -1889,9 +1885,23 @@ summary.html\
  CellChangeTimes->{{3.7007765492418337`*^9, 3.7007765636102467`*^9}, {
    3.705104213701561*^9, 3.7051042224510612`*^9}, {3.705105582902875*^9, 
    3.7051055862950687`*^9}, 3.705685620863511*^9, 3.7169026105308657`*^9, 
+   3.735483436579891*^9, {3.739273009756556*^9, 3.7392730415653563`*^9}, 
+   3.7394057959243126`*^9},ExpressionUUID->"f0050a1b-4cf8-4077-8bf5-\
+a5e35441d888"],
+
+Cell["\<\
+Matejka, J., & Fitzmaurice, G. (2017). Same Stats, Different Graphs: \
+Generating Datasets with Varied Appearance and Identical Statistics Through \
+Simulated Annealing. In Proceedings of the 2017 CHI Conference on Human \
+Factors in Computing Systems (pp. 1290\[Dash]1294). New York, NY, USA: ACM. \
+https://doi.org/10.1145/3025453.3025912\
+\>", "Text",
+ CellChangeTimes->{{3.7007765492418337`*^9, 3.7007765636102467`*^9}, {
+   3.705104213701561*^9, 3.7051042224510612`*^9}, {3.705105582902875*^9, 
+   3.7051055862950687`*^9}, 3.705685620863511*^9, 3.7169026105308657`*^9, 
    3.735483436579891*^9, {3.739273009756556*^9, 3.739273040943872*^9}, {
-   3.7392730891846895`*^9, 
-   3.7392730906780825`*^9}},ExpressionUUID->"5a8d0ef9-a086-4594-98d5-\
+   3.7392730891846895`*^9, 3.7392730906780825`*^9}, {3.7394057925680113`*^9, 
+   3.739405793155273*^9}},ExpressionUUID->"5a8d0ef9-a086-4594-98d5-\
 8df2a4c076e5"]
 }, Open  ]],
 
@@ -2306,34 +2316,35 @@ Cell[CellGroupData[{
 Cell[77259, 1557, 1042, 27, 61, "Input",ExpressionUUID->"4b2d7e3b-8557-4fb5-ab1d-fa004532da5c"],
 Cell[78304, 1586, 4390, 88, 215, "Output",ExpressionUUID->"6e992ba6-001c-445c-ab2e-d1ae4349aad0"]
 }, Open  ]],
-Cell[82709, 1677, 534, 9, 72, "Text",ExpressionUUID->"6b8b3d2c-c7ee-4d15-bb3d-9468fe2b0476"],
+Cell[82709, 1677, 587, 10, 72, "Text",ExpressionUUID->"6b8b3d2c-c7ee-4d15-bb3d-9468fe2b0476"],
 Cell[CellGroupData[{
-Cell[83268, 1690, 1160, 29, 61, "Input",ExpressionUUID->"189d98af-aaf5-4f50-8ffd-a391b15d1c14"],
-Cell[84431, 1721, 4313, 86, 212, "Output",ExpressionUUID->"6517ed1e-ea77-403f-8caa-784480789f36"]
+Cell[83321, 1691, 1160, 29, 61, "Input",ExpressionUUID->"189d98af-aaf5-4f50-8ffd-a391b15d1c14"],
+Cell[84484, 1722, 4313, 86, 212, "Output",ExpressionUUID->"6517ed1e-ea77-403f-8caa-784480789f36"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[88793, 1813, 482, 8, 64, "Section",ExpressionUUID->"69c2789e-757d-42de-8e7a-aa67a7c35b9d"],
-Cell[89278, 1823, 1114, 17, 93, "Text",ExpressionUUID->"0b324648-22e0-420f-8142-b667650ab52d"],
-Cell[90395, 1842, 670, 12, 51, "Text",ExpressionUUID->"4b569dbd-0fed-41da-badb-08ff0c01ff5e"]
+Cell[88846, 1814, 482, 8, 64, "Section",ExpressionUUID->"69c2789e-757d-42de-8e7a-aa67a7c35b9d"],
+Cell[89331, 1824, 1114, 17, 93, "Text",ExpressionUUID->"0b324648-22e0-420f-8142-b667650ab52d"],
+Cell[90448, 1843, 670, 12, 51, "Text",ExpressionUUID->"4b569dbd-0fed-41da-badb-08ff0c01ff5e"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[91102, 1859, 262, 4, 64, "Section",ExpressionUUID->"9da19663-7179-45c9-8160-ad35832309c2"],
-Cell[91367, 1865, 479, 9, 51, "Text",ExpressionUUID->"974d1d02-3f81-4f9f-a141-4f1608fd9d6a"],
-Cell[91849, 1876, 1002, 18, 155, "Text",ExpressionUUID->"5a8d0ef9-a086-4594-98d5-8df2a4c076e5"]
+Cell[91155, 1860, 262, 4, 64, "Section",ExpressionUUID->"9da19663-7179-45c9-8160-ad35832309c2"],
+Cell[91420, 1866, 531, 10, 30, "Text",ExpressionUUID->"974d1d02-3f81-4f9f-a141-4f1608fd9d6a"],
+Cell[91954, 1878, 632, 11, 72, "Text",ExpressionUUID->"f0050a1b-4cf8-4077-8bf5-a5e35441d888"],
+Cell[92589, 1891, 819, 13, 72, "Text",ExpressionUUID->"5a8d0ef9-a086-4594-98d5-8df2a4c076e5"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[92888, 1899, 171, 3, 64, "Section",ExpressionUUID->"a78f6e4f-dbdf-4763-a44f-16569b36e665"],
-Cell[93062, 1904, 217, 4, 30, "Text",ExpressionUUID->"44146aed-2d19-4c66-bfba-1e67f1c1dfb3"],
-Cell[93282, 1910, 165, 3, 30, "Text",ExpressionUUID->"a4e585e2-fad1-40ff-85de-7b4c754eae54"]
+Cell[93445, 1909, 171, 3, 64, "Section",ExpressionUUID->"a78f6e4f-dbdf-4763-a44f-16569b36e665"],
+Cell[93619, 1914, 217, 4, 30, "Text",ExpressionUUID->"44146aed-2d19-4c66-bfba-1e67f1c1dfb3"],
+Cell[93839, 1920, 165, 3, 30, "Text",ExpressionUUID->"a4e585e2-fad1-40ff-85de-7b4c754eae54"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[93496, 1919, 307, 6, 154, "Chapter",ExpressionUUID->"a91b0c22-4606-4122-bf19-3d4bcd746f4c"],
-Cell[93806, 1927, 173, 3, 43, "Subsection",ExpressionUUID->"962879f3-9b11-4b56-8992-fa4001376df9"],
-Cell[93982, 1932, 248, 4, 36, "Subsection",ExpressionUUID->"f46ef323-e1f9-43b8-b626-fa17b9c9a91b"],
-Cell[94233, 1938, 226, 4, 36, "Subsection",ExpressionUUID->"d6c5abda-8183-41cc-9f3d-132ba5a38cb4"],
-Cell[94462, 1944, 224, 4, 36, "Subsection",ExpressionUUID->"f9a42e24-3257-4b35-8468-5b9b14030d1c"]
+Cell[94053, 1929, 307, 6, 154, "Chapter",ExpressionUUID->"a91b0c22-4606-4122-bf19-3d4bcd746f4c"],
+Cell[94363, 1937, 173, 3, 43, "Subsection",ExpressionUUID->"962879f3-9b11-4b56-8992-fa4001376df9"],
+Cell[94539, 1942, 248, 4, 36, "Subsection",ExpressionUUID->"f46ef323-e1f9-43b8-b626-fa17b9c9a91b"],
+Cell[94790, 1948, 226, 4, 36, "Subsection",ExpressionUUID->"d6c5abda-8183-41cc-9f3d-132ba5a38cb4"],
+Cell[95019, 1954, 224, 4, 36, "Subsection",ExpressionUUID->"f9a42e24-3257-4b35-8468-5b9b14030d1c"]
 }, Open  ]]
 }, Open  ]]
 }
