@@ -1,0 +1,302 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     11655,        294]
+NotebookOptionsPosition[     10183,        261]
+NotebookOutlinePosition[     10537,        277]
+CellTagsIndexPosition[     10494,        274]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"XML", " ", "PARSER"}], " ", "*)"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"$tag", " ", "=", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"WordCharacter", "|", "\"\<-\>\""}], ")"}], ".."}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"parseAttrs", "[", "expr_String", "]"}], " ", ":=", " ", 
+    RowBox[{"Cases", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"StringReplace", "[", "\[IndentingNewLine]", 
+       RowBox[{"expr", ",", 
+        RowBox[{"{", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"k", ":", "$tag"}], "~~", "\"\<=\\\"\>\"", " ", "~~", " ", 
+            RowBox[{"v", ":", 
+             RowBox[{"Shortest", "[", "___", "]"}]}], " ", "~~", " ", 
+            "\"\<\\\"\>\""}], " ", "\[RuleDelayed]", " ", 
+           RowBox[{"{", 
+            RowBox[{"k", " ", "\[Rule]", " ", "v"}], "}"}]}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"k", ":", "$tag"}], "~~", "\"\<='\>\"", " ", "~~", " ", 
+            RowBox[{"v", ":", 
+             RowBox[{"Shortest", "[", "___", "]"}]}], " ", "~~", " ", 
+            "\"\<'\>\""}], " ", "\[RuleDelayed]", " ", 
+           RowBox[{"{", 
+            RowBox[{"k", " ", "\[Rule]", " ", "v"}], "}"}]}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"k", ":", "$tag"}], "~~", "\"\<=\>\"", " ", "~~", " ", 
+            RowBox[{"v", ":", "$tag"}]}], " ", "\[RuleDelayed]", " ", 
+           RowBox[{"{", 
+            RowBox[{"k", " ", "\[Rule]", " ", "v"}], "}"}]}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"k", ":", "$tag"}], " ", "\[RuleDelayed]", " ", 
+           RowBox[{"{", 
+            RowBox[{"k", " ", "\[Rule]", " ", "\"\<\>\""}], "}"}]}]}], 
+         "\[IndentingNewLine]", "}"}]}], "\[IndentingNewLine]", "]"}], ",", 
+      "\[IndentingNewLine]", "_Rule", ",", "\[IndentingNewLine]", "All"}], 
+     "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"parseXML", "[", "expr_String", "]"}], " ", ":=", " ", 
+    RowBox[{"Quiet", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"List", " ", "@@", " ", 
+       RowBox[{"StringReplace", "[", "\[IndentingNewLine]", 
+        RowBox[{"expr", ",", "\[IndentingNewLine]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"\"\<<\>\"", " ", "~~", " ", 
+             RowBox[{"tag", ":", "$tag"}], " ", "~~", " ", 
+             RowBox[{"attrs", ":", 
+              RowBox[{"Shortest", "[", "___", "]"}]}], " ", "~~", " ", 
+             "\"\<>\>\"", " ", "~~", " ", 
+             RowBox[{"body", ":", 
+              RowBox[{"Shortest", "[", "___", "]"}]}], " ", "~~", " ", 
+             "\"\<</\>\"", " ", "~~", " ", 
+             RowBox[{"tag", ":", "$tag"}], " ", "~~", " ", "\"\<>\>\""}], " ",
+             "\[RuleDelayed]", " ", 
+            RowBox[{"XMLElement", "[", 
+             RowBox[{"tag", ",", " ", 
+              RowBox[{"parseAttrs", " ", "@", " ", "attrs"}], ",", " ", 
+              RowBox[{"parseXML", "@", "body"}]}], "]"}]}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"\"\<<\>\"", " ", "~~", " ", 
+             RowBox[{"tag", ":", "$tag"}], " ", "~~", " ", 
+             RowBox[{"attrs", ":", 
+              RowBox[{"Shortest", "[", "___", "]"}]}], " ", "~~", " ", 
+             "\"\</>\>\""}], " ", "\[RuleDelayed]", " ", 
+            RowBox[{"XMLElement", "[", 
+             RowBox[{"tag", ",", " ", 
+              RowBox[{"parseAttrs", " ", "@", " ", "attrs"}], ",", " ", 
+              RowBox[{"{", "}"}]}], "]"}]}]}], "\[IndentingNewLine]", "}"}]}],
+         "\[IndentingNewLine]", "]"}]}], ",", "\[IndentingNewLine]", 
+      RowBox[{"StringExpression", "::", "cond"}]}], "\[IndentingNewLine]", 
+     "]"}]}], "\[IndentingNewLine]", "Optional", 
+   "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.739377665840726*^9, 3.7393778692983723`*^9}, {
+  3.739377903824967*^9, 3.739377949480762*^9}, {3.739377979655553*^9, 
+  3.739378255141087*^9}, {3.7393782913775597`*^9, 3.739378298267354*^9}, {
+  3.739378330750901*^9, 3.739378353005094*^9}, {3.739656679687542*^9, 
+  3.7396567085820427`*^9}, {3.7396568549598637`*^9, 
+  3.739656857430938*^9}},ExpressionUUID->"0959cc30-2488-410c-a688-\
+65b458dcc716"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"xmlToString", "[", "body_String", "]"}], " ", ":=", " ", 
+  RowBox[{"StringReplace", "[", "\[IndentingNewLine]", 
+   RowBox[{"body", ",", " ", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"\"\<<\>\"", " ", "~~", 
+      RowBox[{"Shortest", "[", "___", "]"}], "~~", " ", "\"\<>\>\""}], " ", 
+     "\[RuleDelayed]", " ", "\"\<\>\""}]}], "\[IndentingNewLine]", " ", 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"xmlToString", "[", "body_List", "]"}], " ", ":=", " ", 
+  RowBox[{"StringJoin", " ", "@", " ", 
+   RowBox[{"Map", "[", 
+    RowBox[{"xmlToString", ",", " ", "body"}], 
+    "]"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"xmlToString", "[", 
+    RowBox[{"XMLElement", "[", 
+     RowBox[{"_", ",", " ", "_", ",", " ", "body_"}], "]"}], "]"}], " ", ":=",
+    " ", 
+   RowBox[{"xmlToString", "[", "body", "]"}]}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.739656719193718*^9, 3.739656719504302*^9}, {
+  3.73965679238935*^9, 3.739656930355064*^9}},
+ CellLabel->
+  "In[205]:=",ExpressionUUID->"88008062-0753-4f8c-99d9-f88a667b0ba9"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"import", "[", "url_String", "]"}], ":=", " ", 
+  RowBox[{"parseXML", "@", 
+   RowBox[{"Import", "[", 
+    RowBox[{"url", ",", " ", "\"\<String\>\""}], "]"}]}]}]], "Input",
+ CellLabel->
+  "In[189]:=",ExpressionUUID->"a55a1da4-2c9e-4c37-9c7c-474849c5be4a"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"xml", " ", "=", " ", 
+   RowBox[{
+   "import", "[", 
+    "\"\<http://www-groups.dcs.st-and.ac.uk/history/Biographies/Regiomontanus.\
+html\>\"", "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.7396567269002743`*^9, 3.739656751754826*^9}},
+ CellLabel->
+  "In[191]:=",ExpressionUUID->"1b835b82-8f11-421c-8e98-3c4b8a8bd605"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"article", " ", "=", " ", 
+    RowBox[{"Cases", "[", 
+     RowBox[{"xml", ",", " ", 
+      RowBox[{"XMLElement", "[", 
+       RowBox[{"\"\<h3\>\"", ",", " ", "__"}], "]"}], ",", " ", "Infinity"}], 
+     "]"}]}], ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"xmlToString", "[", "article", "]"}]}], "Input",
+ CellChangeTimes->{{3.739656765658724*^9, 3.73965677022614*^9}, {
+   3.739657062364298*^9, 3.739657067580352*^9}, 3.739657144506077*^9},
+ CellLabel->
+  "In[219]:=",ExpressionUUID->"dea7b73d-35fb-41f5-996a-9291a48b9f81"],
+
+Cell[BoxData["\<\"Born: 6 June 1436 in Unfinden (near K&ouml;nigsberg), Lower \
+Franconia (now in Bayern, Germany)\\r\\nDied: 6 July 1476 in Rome (now Italy)\
+\"\>"], "Output",
+ CellChangeTimes->{3.739657145084338*^9},
+ CellLabel->
+  "Out[220]=",ExpressionUUID->"d8e5b483-1961-4ee6-916b-f6f5fd9acc94"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.739657136007592*^9, 
+  3.7396571402673273`*^9}},ExpressionUUID->"995cef4d-35e2-4282-9ed1-\
+8d055bf679c5"],
+
+Cell[BoxData["\<\"h3\"\>"], "Output",
+ CellChangeTimes->{3.739657136821864*^9},
+ CellLabel->
+  "Out[218]=",ExpressionUUID->"e89dff55-58a7-484c-9f01-d1c00dc086bc"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"born", " ", "=", " ", 
+    RowBox[{"Cases", "[", 
+     RowBox[{"xml", ",", " ", 
+      RowBox[{"XMLElement", "[", 
+       RowBox[{"\"\<font\>\"", ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"___", ",", " ", 
+          RowBox[{"\"\<color\>\"", "\[Rule]", " ", "\"\<green\>\""}], ",", 
+          " ", "___"}], "}"}], ",", " ", "_"}], "]"}], ",", " ", "Infinity"}],
+      "]"}]}], ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"xmlToString", "[", "born", "]"}]}], "Input",
+ CellChangeTimes->{{3.739657197942247*^9, 3.7396572379260406`*^9}},
+ CellLabel->
+  "In[227]:=",ExpressionUUID->"86169c95-2333-440a-bcd8-c60bc0a8336f"],
+
+Cell[BoxData["\<\" 6 June 1436 in Unfinden (near K&ouml;nigsberg), Lower \
+Franconia (now in Bayern, Germany)\"\>"], "Output",
+ CellChangeTimes->{{3.739657229033524*^9, 3.7396572382923603`*^9}},
+ CellLabel->
+  "Out[228]=",ExpressionUUID->"9b566a19-9b8a-4775-a1e9-332f1fca77cd"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"died", " ", "=", " ", 
+    RowBox[{"Cases", "[", 
+     RowBox[{"xml", ",", " ", 
+      RowBox[{"XMLElement", "[", 
+       RowBox[{"\"\<font\>\"", ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"___", ",", " ", 
+          RowBox[{"\"\<color\>\"", "\[Rule]", " ", "\"\<purple\>\""}], ",", 
+          " ", "___"}], "}"}], ",", " ", "_"}], "]"}], ",", " ", "Infinity"}],
+      "]"}]}], ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"xmlToString", "[", "died", "]"}]}], "Input",
+ CellChangeTimes->{{3.73965724665341*^9, 3.73965725213116*^9}},
+ CellLabel->
+  "In[231]:=",ExpressionUUID->"a52a86d4-0b28-4294-9979-e309b6db053c"],
+
+Cell[BoxData["\<\" 6 July 1476 in Rome (now Italy)Copyright \
+information\"\>"], "Output",
+ CellChangeTimes->{{3.7396572478092203`*^9, 3.739657252469946*^9}},
+ CellLabel->
+  "Out[232]=",ExpressionUUID->"fa75a8ac-7a54-43e5-b449-7259eb24b881"]
+}, Open  ]]
+},
+WindowSize->{808, 756},
+WindowMargins->{{37, Automatic}, {Automatic, 25}},
+FrontEndVersion->"11.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 5, \
+2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 4527, 98, 640, "Input",ExpressionUUID->"0959cc30-2488-410c-a688-65b458dcc716"],
+Cell[5088, 120, 1171, 27, 199, "Input",ExpressionUUID->"88008062-0753-4f8c-99d9-f88a667b0ba9"],
+Cell[6262, 149, 289, 7, 30, "Input",ExpressionUUID->"a55a1da4-2c9e-4c37-9c7c-474849c5be4a"],
+Cell[6554, 158, 355, 9, 52, "Input",ExpressionUUID->"1b835b82-8f11-421c-8e98-3c4b8a8bd605"],
+Cell[CellGroupData[{
+Cell[6934, 171, 592, 13, 73, "Input",ExpressionUUID->"dea7b73d-35fb-41f5-996a-9291a48b9f81"],
+Cell[7529, 186, 301, 5, 98, "Output",ExpressionUUID->"d8e5b483-1961-4ee6-916b-f6f5fd9acc94"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7867, 196, 154, 3, 30, "Input",ExpressionUUID->"995cef4d-35e2-4282-9ed1-8d055bf679c5"],
+Cell[8024, 201, 162, 3, 34, "Output",ExpressionUUID->"e89dff55-58a7-484c-9f01-d1c00dc086bc"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8223, 209, 693, 16, 73, "Input",ExpressionUUID->"86169c95-2333-440a-bcd8-c60bc0a8336f"],
+Cell[8919, 227, 277, 4, 56, "Output",ExpressionUUID->"9b566a19-9b8a-4775-a1e9-332f1fca77cd"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9233, 236, 690, 16, 73, "Input",ExpressionUUID->"a52a86d4-0b28-4294-9979-e309b6db053c"],
+Cell[9926, 254, 241, 4, 34, "Output",ExpressionUUID->"fa75a8ac-7a54-43e5-b449-7259eb24b881"]
+}, Open  ]]
+}
+]
+*)
+
