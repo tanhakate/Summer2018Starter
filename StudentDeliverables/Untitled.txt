@@ -1,0 +1,10 @@
+TemplateApply;
+
+$mapping = 
+  Reverse[Normal[
+    Templating`HTML`PackagePrivate`$SafeHTMLEntities], {2}];
+
+htmlToText[txt_String] := 
+ StringReplace[txt, $mapping]
+
+htmlToText["aaaa&agrave;"]
